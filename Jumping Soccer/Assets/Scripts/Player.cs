@@ -7,14 +7,17 @@ public class Player : MonoBehaviour
     [SerializeField] bool isJumping;
     [SerializeField] float jumpForce;
     [SerializeField] Animator anim;
+    [SerializeField] GameObject legKick;
     public Rigidbody2D rig;
 
     public void Jump()
     {
         anim.Play("kick");
+        
         if(!isJumping)
         {
-            rig.velocity = Vector2.up * jumpForce;
+            //ig.velocity = Vector2.up * jumpForce;
+            rig.velocity = new Vector2(-1, jumpForce);
             isJumping = true;
         }
         
@@ -26,5 +29,10 @@ public class Player : MonoBehaviour
         {
             isJumping = false;
         }
+    }
+
+    private void Gravity()
+    {
+
     }
 }
